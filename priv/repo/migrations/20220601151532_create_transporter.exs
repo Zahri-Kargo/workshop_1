@@ -1,4 +1,4 @@
-defmodule Workshop1.Repo.Migrations.CreateTransporters do
+defmodule Workshop1.Repo.Migrations.CreateTransporter do
   use Ecto.Migration
 
   def change do
@@ -10,5 +10,7 @@ defmodule Workshop1.Repo.Migrations.CreateTransporters do
 
       timestamps()
     end
+
+    create index("transporters",[:npwp_number], unique: true)
   end
 end

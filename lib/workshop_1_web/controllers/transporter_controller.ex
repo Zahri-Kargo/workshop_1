@@ -33,6 +33,13 @@ defmodule Workshop1Web.TransporterController do
     end
   end
 
+  def update_status(conn, params) do
+    transporter = Transporters.get_transporter!(params["id"])
+    with {:ok, %Transporter{} = transporter} <- Transporters.update_transporter(transporter, %{"status"=> params["status"]}) do
+      render(conn, "show.json", transporter: transporter)
+    end
+  end
+
   def delete(conn, %{"id" => id}) do
     transporter = Transporters.get_transporter!(id)
 

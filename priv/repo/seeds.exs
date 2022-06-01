@@ -5,7 +5,7 @@
 # Inside the script, you can read and write to any of your
 # repositories directly:
 #
-#     Workshop1.Repo.insert!(%Workshop1.SomeSchema{})
+#     Project1.Repo.insert!(%Project1.SomeSchema{})
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.

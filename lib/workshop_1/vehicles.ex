@@ -7,7 +7,7 @@ defmodule Workshop1.Vehicles do
   alias Workshop1.Repo
 
   alias Workshop1.Vehicles.Vehicle
-
+  alias Workshop1.Transporters
   @doc """
   Returns the list of vehicles.
 

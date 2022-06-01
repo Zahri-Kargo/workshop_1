@@ -18,7 +18,24 @@ defmodule Workshop1.Transporters_Vehicles do
 
   """
   def list_transporter_vehicle do
-    Repo.all(Transporter_Vehicle)
+    query = Ecto.Query.from tv in "transporter_vehicles",
+            left_join: t in "transporters",
+            left_join: v in "vehicles",
+            on: tv.transporter_id == t.id,
+            on: tv.vehicle_id == v.id,
+            select: %{id: tv.id, transporter_id: tv.transporter_id, vehicle_id: tv.vehicle_id, vehicle: %{
+              id: v.id,
+              vehicle_plate: v.vehicle_plate,
+              status: v.status
+            },
+            transporter: %{
+              id: t.id,
+              name: t.name,
+              phone_number: t.phone_number,
+              npwp_number: t.npwp_number
+            }
+          }
+    Repo.all(query)
   end
 
   @doc """

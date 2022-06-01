@@ -4,7 +4,8 @@ defmodule Workshop1.Vehicles.Vehicle do
 
   schema "vehicles" do
     field :status, Ecto.Enum, values: [:validated, :not_validated], default: :not_validated
-    field :lisence_plate, :string
+    field :license_plate, :string
+    field :transporter_id, :integer
 
     timestamps()
   end

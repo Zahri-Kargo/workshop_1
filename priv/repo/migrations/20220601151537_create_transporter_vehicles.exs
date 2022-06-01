@@ -1,4 +1,4 @@
-defmodule Workshop1.Repo.Migrations.CreateTransporterVehicle do
+defmodule Workshop1.Repo.Migrations.CreateTransporterVehicles do
   use Ecto.Migration
 
   def change do
