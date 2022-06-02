@@ -15,12 +15,23 @@ defmodule Workshop1Web.Router do
   end
 
   scope "/", Workshop1Web do
-    pipe_through :browser
+    pipe_through :api
 
     get "/", PageController, :index
     resources "/vehicles", VehicleController
     resources "/transporters", TransporterController
-    resources "/transporter-vehicles", TransporterVehicleController
+    resources "/transporter-vehicles", Transporter_VehicleController
+  end
+
+  scope "/" do
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+    schema: Workshop1Web.Schema
+    # interface: simple,
+    # context: %{pubsub: Workshop1Web.Endpoint}
+
+    forward "/graph", Absinthe.Plug,
+    schema: Workshop1Web.Schema
+
   end
 
   # Other scopes may use custom stacks.

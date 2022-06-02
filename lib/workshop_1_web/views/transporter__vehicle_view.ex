@@ -13,8 +13,6 @@ defmodule Workshop1Web.Transporter_VehicleView do
   def render("transporter__vehicle.json", %{transporter__vehicle: transporter__vehicle}) do
     %{
       id: transporter__vehicle.id,
-      transporter_id: transporter__vehicle.transporter_id,
-      vehicle_id: transporter__vehicle.vehicle_id,
       vehicle: transporter__vehicle.vehicle,
       transporter: transporter__vehicle.transporter
     }
